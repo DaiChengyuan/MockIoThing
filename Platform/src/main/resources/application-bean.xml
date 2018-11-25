@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="TestDevice" class="com.dcy.mockiothing.device.testdevice.TestDeviceModel" scope="prototype" />
+    <bean id="BrakeMachine" class="com.dcy.mockiothing.device.brakemachine.BrakeMachine" scope="prototype" />
+
+    <bean id="mockFactory" class="com.dcy.mockiothing.platform.core.MockFactory">
+        <property name="deviceModelMap">
+            <map>
+                <entry key="TestDevice">
+                    <bean class="com.dcy.mockiothing.device.testdevice.TestDevice" />
+                </entry>
+                <entry key="BrakeMachine">
+                    <bean class="com.dcy.mockiothing.device.brakemachine.BrakeMachine" />
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>
